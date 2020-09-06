@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Tooltip("Speed multipliers for x and y directions.")]
     [SerializeField] Vector2 offsets = new Vector2(2, 2);
     [SerializeField] Vector2 limits = new Vector2(5, 5);
     [SerializeField] float pitchPositionFactor = -4f;
