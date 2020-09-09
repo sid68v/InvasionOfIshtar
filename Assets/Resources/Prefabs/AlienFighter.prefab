@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7735515429814611800}
   - component: {fileID: 7719789748109350848}
   - component: {fileID: 7711625824783418692}
+  - component: {fileID: 3329537566862730859}
   m_Layer: 0
   m_Name: AlienFighter
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7733242135287180428}
-  m_LocalRotation: {x: -0.027590182, y: -0.7369488, z: 0.0021753786, w: 0.6753818}
+  m_LocalRotation: {x: -0.027593385, y: -0.73695, z: 0.0021777272, w: 0.67538035}
   m_LocalPosition: {x: 522.3, y: 53.9, z: 638.8}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3329537566862730859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733242135287180428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5589436, y: 1.6560793, z: 1.838511}
+  m_Center: {x: 0.0000000068584773, y: -0.098113626, z: -0.30684692}

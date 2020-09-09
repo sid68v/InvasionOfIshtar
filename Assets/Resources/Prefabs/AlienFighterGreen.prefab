@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 7394426295911427342}
   - component: {fileID: 7414952098488084632}
   - component: {fileID: 7405474461819736310}
+  - component: {fileID: 603137828807152599}
   m_Layer: 0
   m_Name: AlienFighterGreen
   m_TagString: Untagged
@@ -174,3 +175,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &603137828807152599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391232856780662216}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5589434, y: 1.6560793, z: 1.8385108}
+  m_Center: {x: 0, y: -0.098113626, z: -0.30684307}

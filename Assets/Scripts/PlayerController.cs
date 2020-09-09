@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
         HandleRotation();
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Triggered {other.name}");
+    }
 
     private void HandleRotation()
     {
