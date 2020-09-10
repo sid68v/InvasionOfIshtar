@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 7394426295911427342}
   - component: {fileID: 7414952098488084632}
   - component: {fileID: 7405474461819736310}
-  - component: {fileID: 5029679606610919271}
   m_Layer: 0
   m_Name: AlienFighterGreen
   m_TagString: Untagged
@@ -175,17 +174,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5029679606610919271
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7391232856780662216}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 2e70299eae7fff74a9cfef859bc18b5a, type: 3}

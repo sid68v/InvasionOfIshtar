@@ -1174,6 +1174,10 @@ PrefabInstance:
       propertyPath: CollisionModule.collisionMessages
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2370427998693246401, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
+      propertyPath: CollisionModule.colliderForce
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.143
@@ -1255,6 +1259,10 @@ PrefabInstance:
     - target: {fileID: 2370427998693246401, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370427998693246401, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
+      propertyPath: CollisionModule.colliderForce
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalPosition.x
