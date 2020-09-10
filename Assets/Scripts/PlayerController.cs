@@ -4,42 +4,82 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [Header("General")]
     [Tooltip("Speed multipliers for x and y directions.")]
     [SerializeField] Vector2 offsets = new Vector2(2, 2);
     [SerializeField] Vector2 limits = new Vector2(5, 5);
-    [SerializeField] float pitchPositionFactor = -4f;
+    [SerializeField] float levelLoadDelay = 6f;
+
+    [Header("3D rotation of the ship")]
+    [SerializeField] float pitchPositionFactor = -5f;
     [SerializeField] float pitchThrowFactor = 15f;
-    [SerializeField] float yawPositionFactor = 4f;
+    [SerializeField] float yawPositionFactor = 5f;
     //[SerializeField] float yawThrowFactor = -15f;  
     //[SerializeField] float rollPositionFactor = 4f;
-    [SerializeField] float rollThrowFactor = -50f;
+    [SerializeField] float rollThrowFactor = -60f;
 
+    [Header("Referenced child objects")]
+    [SerializeField] GameObject explosionGO;
+    [SerializeField] GameObject structuralParent;
 
     float horizontalThrow;
     float verticalThrow;
-
+    bool isAlive;
 
     private void Start()
     {
 
     }
+    private void OnEnable()
+    {
+        isAlive = true;
+    }
 
     private void Update()
     {
-        horizontalThrow = Input.GetAxis("Horizontal");
-        verticalThrow = Input.GetAxis("Vertical");
 
-        HandleMovement();
-        HandleRotation();
+        if (isAlive)
+        {
+            horizontalThrow = Input.GetAxis("Horizontal");
+            verticalThrow = Input.GetAxis("Vertical");
+
+            HandleMovement();
+            HandleRotation();
+
+        }
 
     }
-    private void OnTriggerEnter(Collider other)
+
+
+    public void OnPlayerDeath() // function is referenced as string.
     {
-        Debug.Log($"Triggered {other.name}");
+        if (isAlive)
+        {
+            isAlive = false;
+            explosionGO.SetActive(true);
+            Invoke("DelayedFlame", 1f);
+            explosionGO.GetComponent<ParticleSystem>().loop = true;
+            Rigidbody structuralRB = structuralParent.AddComponent<Rigidbody>();
+            Invoke("RestartLevel", levelLoadDelay);
+        }
     }
+
+    private void DelayedFlame()
+    {
+        explosionGO.transform.localScale = Vector3.one * 2;
+    }
+
+    void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
 
     private void HandleRotation()
     {
@@ -52,7 +92,7 @@ public class PlayerController : MonoBehaviour
         //float rollDueToPosition =  transform.localPosition.x* rollPositionFactor;
         float rollDueToThrow = horizontalThrow * rollThrowFactor;
 
-        float pitch = pitchDueToPosition+pitchDueToThrow;
+        float pitch = pitchDueToPosition + pitchDueToThrow;
         float yaw = yawDueToPosition;//+yawDueToThrow;
         float roll = rollDueToThrow;//+rollDueToPosition;
 
