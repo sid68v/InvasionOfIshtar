@@ -10,11 +10,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] bool isRigidBodyAdded = true;
     [SerializeField] int enemyDeathScore = 10;
 
-    MeshCollider meshCollider;
-    Rigidbody rigidbody;
+    MeshCollider enemyMeshCollider;
+    Rigidbody enemyRigidbody;
+    bool isAlive;
     // Start is called before the first frame update
     void Start()
     {
+        isAlive = true;
+
         AddNonTriggerMeshCollider();
         if (isRigidBodyAdded)
         {
@@ -26,25 +29,38 @@ public class EnemyController : MonoBehaviour
 
     private void AddNonTriggerMeshCollider()
     {
-        meshCollider = gameObject.AddComponent<MeshCollider>();
-        meshCollider.sharedMesh = gameObject.GetComponent<MeshFilter>().sharedMesh;
-        meshCollider.convex = true;
-        meshCollider.isTrigger = false;
+        enemyMeshCollider = gameObject.AddComponent<MeshCollider>();
+        enemyMeshCollider.sharedMesh = gameObject.GetComponent<MeshFilter>().sharedMesh;
+        enemyMeshCollider.convex = true;
+        enemyMeshCollider.isTrigger = false;
     }
     private void AddNonKinematicRigidbodyWithoutGravity()
     {
-        rigidbody = gameObject.AddComponent<Rigidbody>();
-        rigidbody.useGravity = false;
+        enemyRigidbody = gameObject.AddComponent<Rigidbody>();
+        enemyRigidbody.useGravity = false;
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
-        explosion.transform.localScale = Vector3.one * 10;
+        if (isAlive)
+        {
+            CreateDeathExplosion();
+            HandleEnemyDeath();
+        }
+    }
 
+    private void HandleEnemyDeath()
+    {
         ScoreHandler.Instance.UpdateScore(enemyDeathScore);
         GetComponent<MeshCollider>().enabled = false;
+        isAlive = false;
         Destroy(gameObject, deathDelay);
+    }
+
+    private void CreateDeathExplosion()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
+        explosion.transform.localScale = Vector3.one * 10;
     }
 
     // Update is called once per frame
