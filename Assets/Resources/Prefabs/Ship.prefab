@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282165719}
   m_Layer: 0
-  m_Name: Particles
+  m_Name: Turrets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1054,6 +1054,7 @@ MonoBehaviour:
   rollThrowFactor: -60
   explosionGO: {fileID: 2796426610162081803}
   structuralParent: {fileID: 6520960767305883548}
+  turret: {fileID: 0}
 --- !u!114 &2033279158
 MonoBehaviour:
   m_ObjectHideFlags: 0

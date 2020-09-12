@@ -103,8 +103,9 @@ GameObject:
   - component: {fileID: 7394426295911427342}
   - component: {fileID: 7414952098488084632}
   - component: {fileID: 7405474461819736310}
+  - component: {fileID: 193090365}
   m_Layer: 0
-  m_Name: AlienFighterGreen
+  m_Name: AlienBugGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 7391232856780662216}
   m_LocalRotation: {x: 0, y: 0.36371455, z: 0, w: 0.93151045}
   m_LocalPosition: {x: 18.5, y: 64.7, z: 551.9}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 5038572495684238376}
   m_Father: {fileID: 0}
@@ -174,3 +175,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &193090365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391232856780662216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a7e06cb7c6038478ded27099e70946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 5561180277046150084, guid: 365f88f738c8abe4893a0aacbbb98643, type: 3}
+  deathDelay: 1.5
+  isRigidBodyAdded: 1
+  enemyDeathScore: 10
+  health: 100

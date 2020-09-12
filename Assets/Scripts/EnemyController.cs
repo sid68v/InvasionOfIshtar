@@ -9,44 +9,39 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float deathDelay = 1.5f;
     [SerializeField] bool isRigidBodyAdded = true;
     [SerializeField] int enemyDeathScore = 10;
+    [SerializeField] int health = 100;
 
     MeshCollider enemyMeshCollider;
     Rigidbody enemyRigidbody;
     bool isAlive;
+    int initialHealth;
     // Start is called before the first frame update
     void Start()
     {
+        initialHealth = health;
         isAlive = true;
-
         AddNonTriggerMeshCollider();
-        if (isRigidBodyAdded)
-        {
-            AddNonKinematicRigidbodyWithoutGravity();
-        }
+        AddNonKinematicRigidbodyWithoutGravity();
     }
 
 
-
-    private void AddNonTriggerMeshCollider()
-    {
-        enemyMeshCollider = gameObject.AddComponent<MeshCollider>();
-        enemyMeshCollider.sharedMesh = gameObject.GetComponent<MeshFilter>().sharedMesh;
-        enemyMeshCollider.convex = true;
-        enemyMeshCollider.isTrigger = false;
-    }
-    private void AddNonKinematicRigidbodyWithoutGravity()
-    {
-        enemyRigidbody = gameObject.AddComponent<Rigidbody>();
-        enemyRigidbody.useGravity = false;
-    }
 
     private void OnParticleCollision(GameObject other)
     {
-        if (isAlive)
+        // TODO: add some hit vfx here.
+
+
+        ReduceEnemyHealth();   
+        if (isAlive && health <= 0)
         {
             CreateDeathExplosion();
             HandleEnemyDeath();
         }
+    }
+
+    private void ReduceEnemyHealth()
+    {
+        health -= PlayerController.Instance.turretFirePower;
     }
 
     private void HandleEnemyDeath()
@@ -62,6 +57,23 @@ public class EnemyController : MonoBehaviour
         GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
         explosion.transform.localScale = Vector3.one * 10;
     }
+    private void AddNonTriggerMeshCollider()
+    {
+        enemyMeshCollider = gameObject.AddComponent<MeshCollider>();
+        enemyMeshCollider.sharedMesh = gameObject.GetComponent<MeshFilter>().sharedMesh;
+        enemyMeshCollider.convex = true;
+        enemyMeshCollider.isTrigger = false;
+    }
+    private void AddNonKinematicRigidbodyWithoutGravity()
+    {
+        if (!gameObject.GetComponent<Rigidbody>() && isRigidBodyAdded)
+        {
+            enemyRigidbody = gameObject.AddComponent<Rigidbody>();
+            enemyRigidbody.useGravity = false;
+        }
+
+    }
+
 
     // Update is called once per frame
     void Update()

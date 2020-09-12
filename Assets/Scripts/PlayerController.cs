@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
+[DisallowMultipleComponent]
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
 
     [Header("General")]
     [Tooltip("Speed multipliers for x and y directions.")]
     [SerializeField] Vector2 offsets = new Vector2(2, 2);
     [SerializeField] Vector2 limits = new Vector2(5, 5);
     [SerializeField] float levelLoadDelay = 6f;
+    public int turretFirePower = 10;
 
     [Header("3D rotation of the ship")]
     [SerializeField] float pitchPositionFactor = -5f;
@@ -27,18 +31,30 @@ public class PlayerController : MonoBehaviour
     [Header("Referenced child objects")]
     [SerializeField] GameObject explosionGO;
     [SerializeField] GameObject structuralParent;
+    [SerializeField] GameObject turrets;
+
 
     float horizontalThrow;
     float verticalThrow;
     bool isAlive;
 
+    BoxCollider playerCollider;
+    private void Awake()
+    {
+        if (!Instance)
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
-
+        playerCollider = GetComponent<BoxCollider>();
     }
     private void OnEnable()
     {
         isAlive = true;
+        turrets.SetActive(false);
     }
 
     private void Update()
@@ -51,22 +67,38 @@ public class PlayerController : MonoBehaviour
 
             HandleMovement();
             HandleRotation();
+            HandleFiring();
 
         }
 
     }
 
+    private void HandleFiring()
+    {
+        if (Input.GetButton("Fire"))
+        {
+            turrets.SetActive(true);
+        }
+        else
+        {
+            turrets.SetActive(false);
+        }
+    }
 
     public void OnPlayerDeath() // function is referenced as string.
     {
         if (isAlive)
         {
             isAlive = false;
+
             explosionGO.SetActive(true);
             Invoke("DelayedFlame", 1f);
             explosionGO.GetComponent<ParticleSystem>().loop = true;
+
             Rigidbody structuralRB = structuralParent.AddComponent<Rigidbody>();
+            playerCollider.isTrigger = false;
             Invoke("RestartLevel", levelLoadDelay);
+
         }
     }
 
@@ -79,7 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    
+
 
     private void HandleRotation()
     {
