@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     [Header("Referenced child objects")]
     [SerializeField] GameObject explosionGO;
     [SerializeField] GameObject structuralParent;
-    [SerializeField] GameObject turrets;
+    [SerializeField] ParticleSystem[] turretsParticles;
 
 
     float horizontalThrow;
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         isAlive = true;
-        turrets.SetActive(false);
+        SetTurretStatus(false);
     }
 
     private void Update()
@@ -77,11 +77,19 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButton("Fire"))
         {
-            turrets.SetActive(true);
+            SetTurretStatus(true);
         }
         else
         {
-            turrets.SetActive(false);
+            SetTurretStatus(false);
+        }
+    }
+
+    private void SetTurretStatus(bool isEmissionActive)
+    {
+        foreach(ParticleSystem turretParticle in turretsParticles)
+        {
+            turretParticle.enableEmission = isEmissionActive;
         }
     }
 

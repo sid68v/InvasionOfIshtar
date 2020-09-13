@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] GameObject explosionPrefab;
-    [SerializeField] float deathDelay = 1.5f;
+    [SerializeField] float deathDelay = 0.5f;
     [SerializeField] bool isRigidBodyAdded = true;
     [SerializeField] int enemyDeathScore = 10;
     [SerializeField] int health = 100;
@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour
     private void CreateDeathExplosion()
     {
         GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
-        explosion.transform.localScale = Vector3.one * 10;
+        explosion.transform.localScale =  transform.localScale *2;
     }
     private void AddNonTriggerMeshCollider()
     {
