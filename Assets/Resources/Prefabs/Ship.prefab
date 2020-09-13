@@ -944,7 +944,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6520960767305883548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 4b3071d113f87f24fb37f0b071ab1c7a, type: 3}
   m_Controller: {fileID: 9100000, guid: abe41865abe4f1f4aaa3a47171c703e3, type: 2}
   m_CullingMode: 0
@@ -964,7 +964,7 @@ MeshCollider:
   m_GameObject: {fileID: 6520960767305883548}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -1031,8 +1031,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.511299, y: 2.6563625, z: 8.015984}
-  m_Center: {x: -0.03434372, y: 0.17181873, z: 0.618412}
+  m_Size: {x: 3.4041824, y: 1.3658962, z: 7.554512}
+  m_Center: {x: -0.08047104, y: 0.19691372, z: 0.7107048}
 --- !u!114 &1301690399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,16 +1045,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355f97b37cc583644a017aa7eb6d8b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets: {x: 0.2, y: 0.2}
+  offsets: {x: 20, y: 20}
   limits: {x: 11, y: 6}
   levelLoadDelay: 6
+  turretFirePower: 10
   pitchPositionFactor: -4
   pitchThrowFactor: 15
   yawPositionFactor: 4
   rollThrowFactor: -60
   explosionGO: {fileID: 2796426610162081803}
   structuralParent: {fileID: 6520960767305883548}
-  turret: {fileID: 0}
+  turrets: {fileID: 1282165718}
 --- !u!114 &2033279158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,7 +1178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246401, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: CollisionModule.colliderForce
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1193,7 +1194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.06549014
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1205,7 +1206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9978532
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_RootOrder
@@ -1213,7 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -7.51
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1263,7 +1264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246401, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: CollisionModule.colliderForce
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1279,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.06549014
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1291,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9978532
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_RootOrder
@@ -1299,7 +1300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -7.51
       objectReference: {fileID: 0}
     - target: {fileID: 2370427998693246403, guid: 080031d35d65e6e4da5fc3a0575fa217, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

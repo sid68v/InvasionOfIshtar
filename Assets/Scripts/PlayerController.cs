@@ -133,10 +133,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        transform.localPosition = new Vector3(
-            Mathf.Clamp(transform.localPosition.x + horizontalThrow * offsets.x, -limits.x, limits.x),
-            Mathf.Clamp(transform.localPosition.y + verticalThrow * offsets.y, -limits.y, limits.y),
-            transform.localPosition.z
-            );
+        float xPos = Mathf.Clamp(transform.localPosition.x + horizontalThrow * offsets.x*Time.deltaTime, -limits.x, limits.x);
+        float yPos = Mathf.Clamp(transform.localPosition.y + verticalThrow * offsets.y*Time.deltaTime, -limits.y, limits.y);
+        float zPos = transform.localPosition.z;
+
+        transform.localPosition = new Vector3(xPos,yPos,zPos);
     }
 }
