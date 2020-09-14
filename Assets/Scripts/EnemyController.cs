@@ -40,6 +40,7 @@ public class EnemyController : MonoBehaviour
         ReduceEnemyHealth();
         if (isAlive && health <= 0)
         {
+            Debug.Log("Yay!");
             CreateDeathExplosion();
             HandleEnemyDeath();
         }

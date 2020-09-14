@@ -11,14 +11,13 @@ public class PlayerCollisionHandler : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyBullet"))
+        switch (other.gameObject.tag)
         {
-            SendMessage("OnBulletHit");
+            case "EnemyBullet": SendMessage("OnBulletHit"); break;
+            case "EnemyMediumBullet": SendMessage("OnMediumBulletHit"); break;
+            default: SendMessage("OnPlayerDeath"); break;
         }
-        else
-        {
-            SendMessage("OnPlayerDeath");
-        }
+       
     }
 
     // Update is called once per frame

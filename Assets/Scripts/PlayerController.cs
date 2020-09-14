@@ -128,6 +128,11 @@ public class PlayerController : MonoBehaviour
         PlayerHealthDownByValue(10);
         ScoreHandler.Instance.SetHealthText();
     }
+    public void OnMediumBulletHit()
+    {
+        PlayerHealthDownByValue(50);
+        ScoreHandler.Instance.SetHealthText();
+    }
 
     public void PlayerHealthDownByValue(int hitValue)
     {

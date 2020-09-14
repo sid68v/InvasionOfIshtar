@@ -10,10 +10,10 @@ public class LookAtPlayer : MonoBehaviour
     [SerializeField] float maxRangeOfAttack = 4f;
     [SerializeField] float minRangeOfAttack = 1f;
     [SerializeField] float attackInterval = 1f;
+    [SerializeField] float bulletSize = 1f;
 
     GameObject playerShip;
-    Transform gunEnd;
-    Coroutine fireCoroutine;
+    List<GameObject> gunEnds = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -24,21 +24,34 @@ public class LookAtPlayer : MonoBehaviour
     private void OnEnable()
     {
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        gunEnd = transform.GetChild(1).transform;
-        Invoke(nameof(StartFiring), Random.Range(2, 5));
+        gunEnds = FindGunEnds();
+        Invoke(nameof(EnableFireAtPlayer), Random.Range(2, 5));      
     }
 
-    private void StartFiring()
+    private List<GameObject> FindGunEnds()
+    {
+        List<GameObject> guns = new List<GameObject>();
+        foreach (Transform childItem in transform)
+        {
+            if (childItem.CompareTag("Gun"))
+            {
+                guns.Add(childItem.gameObject);
+            }
+        }
+        return guns;
+    }
+
+    private void EnableFireAtPlayer()
     {
         if (isGunEquipped)
         {
-            fireCoroutine = StartCoroutine(StartFire());
+            StartCoroutine(StartFire());
         }
     }
 
     private void OnDisable()
     {
-        StopCoroutine(fireCoroutine);
+        StopCoroutine(nameof(StartFire));
     }
 
     IEnumerator StartFire()
@@ -50,10 +63,14 @@ public class LookAtPlayer : MonoBehaviour
                 && (Vector3.Distance(transform.position, playerShip.transform.position) > minRangeOfAttack)
                 )
             {
-                print("player in range");
-                GameObject bullet = Instantiate(bulletPrefab, gunEnd.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
-                Destroy(bullet, 5f);
+                foreach (GameObject gunEnd in gunEnds)
+                {
+                    GameObject bullet = Instantiate(bulletPrefab, gunEnd.transform.position, Quaternion.identity);
+                    bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
+                    bullet.transform.localScale *= bulletSize;
+                    Destroy(bullet, 5f);
+                }
+
             }
             yield return new WaitForSeconds(attackInterval);
         }
@@ -63,7 +80,5 @@ public class LookAtPlayer : MonoBehaviour
     void Update()
     {
         transform.LookAt(playerShip.transform);
-
-        print($"{(Vector3.Distance(transform.position, playerShip.transform.position))} , minRange : {minRangeOfAttack} , maxRange : {maxRangeOfAttack}");
     }
 }

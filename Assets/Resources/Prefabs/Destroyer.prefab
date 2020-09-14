@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4173138926376932202}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5561180277046150084, guid: 365f88f738c8abe4893a0aacbbb98643, type: 3}
   deathDelay: 0.5
   isRigidBodyAdded: 0
-  enemyDeathScore: 5
-  health: 200
+  enemyDeathScore: 30
+  health: 100
   explosionMultiplier: 3
 --- !u!33 &1758042962933593
 MeshFilter:
@@ -319,11 +319,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGunEquipped: 1
-  gunEnd: {fileID: 4173138926376932202}
   bulletPrefab: {fileID: 4842035363412840467, guid: 5c6843c71a4be5b4e81e6c04226d3095, type: 3}
-  bulletVelocity: 10
-  maxRangeOfAttack: 4
-  minRangeOfAttack: 1
+  bulletVelocity: 100
+  maxRangeOfAttack: 250
+  minRangeOfAttack: 120
+  attackInterval: 2
+  isMultipleGuns: 0
+  bulletSize: 1
 --- !u!65 &4200863286533022930
 BoxCollider:
   m_ObjectHideFlags: 0
