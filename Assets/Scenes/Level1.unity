@@ -429,7 +429,6 @@ MonoBehaviour:
   maxRangeOfAttack: 4
   minRangeOfAttack: 1
   attackInterval: 10
-  isMultipleGuns: 0
   bulletSize: 1
 --- !u!95 &45949988
 Animator:
@@ -5725,7 +5724,6 @@ MonoBehaviour:
   maxRangeOfAttack: 4
   minRangeOfAttack: 1
   attackInterval: 10
-  isMultipleGuns: 0
   bulletSize: 1
 --- !u!95 &304966147
 Animator:
@@ -5788,7 +5786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: attackInterval
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: maxRangeOfAttack
@@ -5796,7 +5794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: bulletVelocity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: minRangeOfAttack
@@ -5902,7 +5900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: attackInterval
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: maxRangeOfAttack
@@ -5910,7 +5908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: bulletVelocity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: minRangeOfAttack
@@ -6704,7 +6702,6 @@ MonoBehaviour:
   maxRangeOfAttack: 4
   minRangeOfAttack: 1
   attackInterval: 10
-  isMultipleGuns: 0
   bulletSize: 1
 --- !u!95 &647208134
 Animator:
@@ -6870,7 +6867,6 @@ MonoBehaviour:
   maxRangeOfAttack: 4
   minRangeOfAttack: 1
   attackInterval: 10
-  isMultipleGuns: 0
   bulletSize: 1
 --- !u!95 &675936697
 Animator:
@@ -12447,7 +12443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: attackInterval
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: maxRangeOfAttack
@@ -12455,7 +12451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: bulletVelocity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: minRangeOfAttack
@@ -19356,7 +19352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: attackInterval
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: maxRangeOfAttack
@@ -19364,7 +19360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: bulletVelocity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: minRangeOfAttack
@@ -19812,7 +19808,6 @@ MonoBehaviour:
   maxRangeOfAttack: 4
   minRangeOfAttack: 1
   attackInterval: 10
-  isMultipleGuns: 0
   bulletSize: 1
 --- !u!95 &1961886747
 Animator:
@@ -19906,7 +19901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: attackInterval
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: maxRangeOfAttack
@@ -19914,7 +19909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: bulletVelocity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: minRangeOfAttack
@@ -20020,7 +20015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: attackInterval
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: maxRangeOfAttack
@@ -20028,7 +20023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: bulletVelocity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: minRangeOfAttack
@@ -20191,7 +20186,6 @@ MonoBehaviour:
   maxRangeOfAttack: 4
   minRangeOfAttack: 1
   attackInterval: 10
-  isMultipleGuns: 0
   bulletSize: 1
 --- !u!95 &2050267988
 Animator:
@@ -20261,7 +20255,6 @@ MonoBehaviour:
   maxRangeOfAttack: 4
   minRangeOfAttack: 1
   attackInterval: 10
-  isMultipleGuns: 0
   bulletSize: 1
 --- !u!95 &2105277240
 Animator:
@@ -20324,7 +20317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: attackInterval
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: maxRangeOfAttack
@@ -20332,7 +20325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: bulletVelocity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1758042962933591, guid: 71215da1d6148b44696f8d716687bd3c, type: 3}
       propertyPath: minRangeOfAttack
