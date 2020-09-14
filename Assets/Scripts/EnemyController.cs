@@ -53,7 +53,14 @@ public class EnemyController : MonoBehaviour
     private void HandleEnemyDeath()
     {
         ScoreHandler.Instance.UpdateScore(enemyDeathScore);
+        if (GetComponent<MeshCollider>())
+        {
         GetComponent<MeshCollider>().enabled = false;
+        }
+        else
+        {
+            GetComponent<Collider>().enabled = false;
+        }
         isAlive = false;
         Destroy(gameObject, deathDelay);
     }
