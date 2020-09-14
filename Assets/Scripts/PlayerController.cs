@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 offsets = new Vector2(2, 2);
     [SerializeField] Vector2 limits = new Vector2(5, 5);
     [SerializeField] float levelLoadDelay = 6f;
+
     public int turretFirePower = 10;
+    public int playerHealth = 1000;
 
     [Header("3D rotation of the ship")]
     [SerializeField] float pitchPositionFactor = -5f;
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
     float horizontalThrow;
     float verticalThrow;
     bool isAlive;
+
 
     BoxCollider playerCollider;
     private void Awake()
@@ -71,6 +74,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (playerHealth <= 0)
+        {
+            OnPlayerDeath();
+        }
+
     }
 
     private void HandleFiring()
@@ -98,12 +106,15 @@ public class PlayerController : MonoBehaviour
         if (isAlive)
         {
             isAlive = false;
+            playerHealth = 0;
+            ScoreHandler.Instance.SetHealthText();
 
             explosionGO.SetActive(true);
             Invoke(nameof(DelayedFlame), 1f);
             ParticleSystem.MainModule particleMain = explosionGO.GetComponent<ParticleSystem>().main;
             particleMain.loop = true;
             SetTurretStatus(false);
+            
 
             Rigidbody structuralRB = structuralParent.AddComponent<Rigidbody>();
             playerCollider.isTrigger = false;
@@ -112,6 +123,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnBulletHit()
+    {
+        PlayerHealthDownByValue(10);
+        ScoreHandler.Instance.SetHealthText();
+    }
+
+    public void PlayerHealthDownByValue(int hitValue)
+    {
+        playerHealth -= hitValue;
+    }
     private void DelayedFlame()
     {
         explosionGO.transform.localScale = Vector3.one * 2;
@@ -149,4 +170,5 @@ public class PlayerController : MonoBehaviour
 
         transform.localPosition = new Vector3(xPos, yPos, zPos);
     }
+   
 }

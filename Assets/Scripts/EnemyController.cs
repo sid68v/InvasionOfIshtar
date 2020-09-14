@@ -16,14 +16,17 @@ public class EnemyController : MonoBehaviour
     Rigidbody enemyRigidbody;
     bool isAlive;
     int initialHealth;
-    [SerializeField] float explosionMultiplier =5f;
+    [SerializeField] float explosionMultiplier = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         initialHealth = health;
         isAlive = true;
-        AddNonTriggerMeshCollider();
+        if (!transform.GetComponent<Collider>())
+        {
+            AddNonTriggerMeshCollider();
+        }
         AddNonKinematicRigidbodyWithoutGravity();
     }
 
@@ -34,7 +37,7 @@ public class EnemyController : MonoBehaviour
         // TODO: add some hit vfx here.
 
 
-        ReduceEnemyHealth();   
+        ReduceEnemyHealth();
         if (isAlive && health <= 0)
         {
             CreateDeathExplosion();
@@ -58,7 +61,7 @@ public class EnemyController : MonoBehaviour
     private void CreateDeathExplosion()
     {
         GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
-        explosion.transform.localScale =  transform.localScale *2 *explosionMultiplier;
+        explosion.transform.localScale = transform.localScale * 2 * explosionMultiplier;
     }
     private void AddNonTriggerMeshCollider()
     {

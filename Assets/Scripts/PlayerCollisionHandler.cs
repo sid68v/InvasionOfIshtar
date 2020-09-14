@@ -7,17 +7,23 @@ public class PlayerCollisionHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     private void OnTriggerEnter(Collider other)
     {
-        
-        SendMessage("OnPlayerDeath");
+        if (other.CompareTag("EnemyBullet"))
+        {
+            SendMessage("OnBulletHit");
+        }
+        else
+        {
+            SendMessage("OnPlayerDeath");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

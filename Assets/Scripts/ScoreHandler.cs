@@ -9,6 +9,7 @@ public class ScoreHandler : MonoBehaviour
     public static ScoreHandler Instance;
 
     [SerializeField] Text scoreText;
+    [SerializeField] Text healthText;
 
     int score = 0;
 
@@ -24,11 +25,16 @@ public class ScoreHandler : MonoBehaviour
     void Start()
     {
         SetScoreText();
+        SetHealthText();
     }
 
     void SetScoreText()
     {
         scoreText.text = "score : " + score.ToString();
+    }
+    public void SetHealthText()
+    {
+        healthText.text = "health : " + PlayerController.Instance.playerHealth.ToString();
     }
     public void UpdateScore(int scorePerEnemy)
     {
@@ -39,6 +45,6 @@ public class ScoreHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 }
