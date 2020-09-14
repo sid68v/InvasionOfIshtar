@@ -87,12 +87,12 @@ public class PlayerController : MonoBehaviour
 
     private void SetTurretStatus(bool isEmissionActive)
     {
-        foreach(ParticleSystem turretParticle in turretsParticles)
+        foreach (ParticleSystem turretParticle in turretsParticles)
         {
-            turretParticle.enableEmission = isEmissionActive;
+            ParticleSystem.EmissionModule particleEmissionModule = turretParticle.emission;
+            particleEmissionModule.enabled = isEmissionActive;
         }
     }
-
     public void OnPlayerDeath() // function is referenced as string.
     {
         if (isAlive)
@@ -100,12 +100,14 @@ public class PlayerController : MonoBehaviour
             isAlive = false;
 
             explosionGO.SetActive(true);
-            Invoke("DelayedFlame", 1f);
-            explosionGO.GetComponent<ParticleSystem>().loop = true;
+            Invoke(nameof(DelayedFlame), 1f);
+            ParticleSystem.MainModule particleMain = explosionGO.GetComponent<ParticleSystem>().main;
+            particleMain.loop = true;
+            SetTurretStatus(false);
 
             Rigidbody structuralRB = structuralParent.AddComponent<Rigidbody>();
             playerCollider.isTrigger = false;
-            Invoke("RestartLevel", levelLoadDelay);
+            Invoke(nameof(RestartLevel), levelLoadDelay);
 
         }
     }
@@ -141,10 +143,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        float xPos = Mathf.Clamp(transform.localPosition.x + horizontalThrow * offsets.x*Time.deltaTime, -limits.x, limits.x);
-        float yPos = Mathf.Clamp(transform.localPosition.y + verticalThrow * offsets.y*Time.deltaTime, -limits.y, limits.y);
+        float xPos = Mathf.Clamp(transform.localPosition.x + horizontalThrow * offsets.x * Time.deltaTime, -limits.x, limits.x);
+        float yPos = Mathf.Clamp(transform.localPosition.y + verticalThrow * offsets.y * Time.deltaTime, -limits.y, limits.y);
         float zPos = transform.localPosition.z;
 
-        transform.localPosition = new Vector3(xPos,yPos,zPos);
+        transform.localPosition = new Vector3(xPos, yPos, zPos);
     }
 }

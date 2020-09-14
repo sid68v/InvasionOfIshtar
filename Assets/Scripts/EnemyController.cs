@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] GameObject explosionPrefab;
@@ -15,6 +16,8 @@ public class EnemyController : MonoBehaviour
     Rigidbody enemyRigidbody;
     bool isAlive;
     int initialHealth;
+    [SerializeField] float explosionMultiplier =5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +58,7 @@ public class EnemyController : MonoBehaviour
     private void CreateDeathExplosion()
     {
         GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
-        explosion.transform.localScale =  transform.localScale *2;
+        explosion.transform.localScale =  transform.localScale *2 *explosionMultiplier;
     }
     private void AddNonTriggerMeshCollider()
     {
