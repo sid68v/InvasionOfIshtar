@@ -13460,6 +13460,10 @@ PrefabInstance:
       propertyPath: secondsGapBetweenMultipleFires
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7720565126844597993, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
+      propertyPath: bulletSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8901600370480324625, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19205,6 +19209,10 @@ PrefabInstance:
       propertyPath: secondsGapBetweenMultipleFires
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7720565126844597993, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
+      propertyPath: bulletSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8901600370480324625, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19278,6 +19286,10 @@ PrefabInstance:
     - target: {fileID: 7720565126844597993, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
       propertyPath: secondsGapBetweenMultipleFires
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720565126844597993, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
+      propertyPath: bulletSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8901600370480324625, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19669,6 +19681,10 @@ PrefabInstance:
       propertyPath: secondsGapBetweenMultipleFires
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7720565126844597993, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
+      propertyPath: bulletSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8901600370480324625, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19807,6 +19823,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7720565126844597993, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
       propertyPath: secondsGapBetweenMultipleFires
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720565126844597993, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
+      propertyPath: bulletSize
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8901600370480324625, guid: 6e697c4567bc04848aade3d5ba16d61a, type: 3}
