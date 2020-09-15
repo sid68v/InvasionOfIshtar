@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 8919983437066787023}
   - component: {fileID: 113572485113336317}
   - component: {fileID: 7720565126844597993}
+  - component: {fileID: 7703825862001266942}
   m_Layer: 0
   m_Name: ManOfWar
   m_TagString: Untagged
@@ -193,7 +194,7 @@ MonoBehaviour:
   isRigidBodyAdded: 0
   enemyDeathScore: 10
   health: 600
-  explosionMultiplier: 20
+  explosionMultiplier: 30
 --- !u!114 &7720565126844597993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,11 +207,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578e4bdec62b74949911557240d46019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLookAtPlayer: 1
   isGunEquipped: 1
   bulletPrefab: {fileID: 4842035363412840467, guid: 3a44a589286fb6b43940d4351262ac2e, type: 3}
   bulletVelocity: 100
   maxRangeOfAttack: 500
   minRangeOfAttack: 1
   attackInterval: 1
-  isMultipleGuns: 0
   bulletSize: 2
+  secondsGapBetweenMultipleFires: 0.2
+--- !u!114 &7703825862001266942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907070753219666661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3227e0db23b55b14ab14bc8a59c095ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oscillationAmplitude: 1
+  oscillationPeriodInSeconds: 5
+  oscillationDirection: {x: 0, y: 10, z: 0}
+  isOscillationOneSided: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour
 {
+    [SerializeField] bool isLookAtPlayer = true;
     [SerializeField] bool isGunEquipped = false;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletVelocity = 100f;
@@ -11,6 +12,7 @@ public class LookAtPlayer : MonoBehaviour
     [SerializeField] float minRangeOfAttack = 1f;
     [SerializeField] float attackInterval = 1f;
     [SerializeField] float bulletSize = 1f;
+    [SerializeField] float secondsGapBetweenMultipleFires = 2f;
 
     GameObject playerShip;
     List<GameObject> gunEnds = new List<GameObject>();
@@ -25,7 +27,7 @@ public class LookAtPlayer : MonoBehaviour
     {
         playerShip = GameObject.FindGameObjectWithTag("Player");
         gunEnds = FindGunEnds();
-        Invoke(nameof(EnableFireAtPlayer), Random.Range(2, 5));      
+        Invoke(nameof(EnableFireAtPlayer), Random.Range(2, 5));
     }
 
     private List<GameObject> FindGunEnds()
@@ -69,6 +71,10 @@ public class LookAtPlayer : MonoBehaviour
                     bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
                     bullet.transform.localScale *= bulletSize;
                     Destroy(bullet, 5f);
+                    if (gunEnds.Count > 1)
+                    {
+                        yield return new WaitForSeconds(secondsGapBetweenMultipleFires);
+                    }
                 }
 
             }
@@ -79,6 +85,9 @@ public class LookAtPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isLookAtPlayer)
+        {
         transform.LookAt(playerShip.transform);
+        }
     }
 }
