@@ -13164,6 +13164,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 2210523339568312958, guid: b1e1bea98908c4e4c86968b31aa2b5c4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210523339568312958, guid: b1e1bea98908c4e4c86968b31aa2b5c4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3623432770307488100, guid: b1e1bea98908c4e4c86968b31aa2b5c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13212,10 +13220,10 @@ PrefabInstance:
       propertyPath: explosionPrefab
       value: 
       objectReference: {fileID: 1089450660}
-    - target: {fileID: 4200277965140401246, guid: b1e1bea98908c4e4c86968b31aa2b5c4, type: 3}
-      propertyPath: explosionMultiplier
-      value: 50
-      objectReference: {fileID: 0}
+    - target: {fileID: 5926301505395288848, guid: b1e1bea98908c4e4c86968b31aa2b5c4, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1e1bea98908c4e4c86968b31aa2b5c4, type: 3}
 --- !u!4 &1015605160 stripped

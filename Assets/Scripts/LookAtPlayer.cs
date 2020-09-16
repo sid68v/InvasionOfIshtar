@@ -6,6 +6,8 @@ public class LookAtPlayer : MonoBehaviour
 {
     [SerializeField] bool isLookAtPlayer = true;
     [SerializeField] bool isGunEquipped = false;
+
+    [Header("Fill below only if guns are equipped.")]
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletVelocity = 100f;
     [SerializeField] float maxRangeOfAttack = 4f;
