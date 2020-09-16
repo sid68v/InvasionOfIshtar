@@ -87,7 +87,7 @@ public class LookAtPlayer : MonoBehaviour
     {
         if (isLookAtPlayer)
         {
-        transform.LookAt(playerShip.transform);
+            transform.LookAt(playerShip.transform);
         }
     }
 }
